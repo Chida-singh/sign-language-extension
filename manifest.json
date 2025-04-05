@@ -1,12 +1,14 @@
 {
     "manifest_version": 3,
-    "name": "Sign Language YouTube Assistant",
+    "name": "Sign Language Overlay",
+    "description": "Overlays sign language on YouTube videos using transcripts",
     "version": "1.0",
-    "description": "Overlay pre-recorded sign language videos based on YouTube captions.",
+    "permissions": ["scripting", "activeTab", "storage"],
     "content_scripts": [
       {
         "matches": ["*://www.youtube.com/*"],
-        "js": ["content.js"]
+        "js": ["content.js"],
+        "css": ["style.css"]
       }
     ],
     "web_accessible_resources": [
@@ -14,8 +16,6 @@
         "resources": ["videos/*.mp4"],
         "matches": ["<all_urls>"]
       }
-    ],
-    "permissions": ["storage"],
-    "host_permissions": ["*://www.youtube.com/*"]
+    ]
   }
   
